@@ -10,7 +10,6 @@ phoenix_container:
 database:
   image: postgres:latest
   environment:
-    MYSQL_DATABASE: quality_walk_service
     POSTGRES_PASSWORD: dbuser
     POSTGRES_USER: dbuser
   ports:
