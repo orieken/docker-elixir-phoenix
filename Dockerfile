@@ -25,9 +25,15 @@ RUN apt-get update -q && \
 
 RUN elixir -v
 
-RUN mix local.hex
+RUN apt-get update -q
+RUN apt-get install -y \
+    nodejs \
+    build-essential \
+    npm \
+    nodejs-legacy \
+    inotify-tools
 
-RUN mix archive.install https://github.com/phoenixframework/phoenix/releases/download/v1.0.3/phoenix_new-1.0.3.ez
+RUN yes | mix local.hex
+RUN yes | mix local.rebar
+RUN yes | mix archive.install https://github.com/phoenixframework/phoenix/releases/download/v1.0.3/phoenix_new-1.0.3.ez
 
-RUN apt-get install -y nodejs-legacy
-RUN apt-get install -y inotify-tools
