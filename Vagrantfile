@@ -25,6 +25,6 @@ Vagrant.configure(2) do |config|
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 
   config.vm.provision :docker
-  config.vm.provision :docker_compose, yml: '/vagrant/docker-compose.yml', project_name: 'phoenix_framework', run: 'always', rebuild: true
+  config.vm.provision :docker_compose, yml: '/vagrant/docker-compose.yml', project_name: 'phoenix_box', run: 'always', rebuild: true
 
 end
