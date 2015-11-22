@@ -1,6 +1,19 @@
-phoenix:
+phoenix_container:
   build: .
   volumes:
     - .:/usr/src/app/
   ports:
-    - "3000:3000"
+    - "7000:7000"
+  links:
+    - database
+
+database:
+  image: postgres:latest
+  environment:
+    MYSQL_DATABASE: quality_walk_service
+    POSTGRES_PASSWORD: dbuser
+    POSTGRES_USER: dbuser
+  ports:
+    - "5432:5432"
+  volumes:
+    - ./data:/data
